@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <h1>Expense Tracker</h1> -->
+
+    <div class="flex-col">
+      <div class="flex">Name: <input type="text" id="name" /></div>
+
+      <div class="flex">
+        Date: <input type="date" id="date" /> Amount:
+        <input type="number" id="amount" />
+      </div>
+    </div>
+
+    <button type="submit" value="Submit" id="submit">Add Expense</button>
+
+    <table class="expenseTracker">
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Amount</th>
+      </tr>
+    </table>
+  </body>
+
+  <style>
+    .flex {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+    }
+    .flex-col {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    table {
+      margin-top: 30px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+
+  <script>
+    // function tryMe(param1, param2) {
+    //   alert(param1 + " and " + param2);
+    // }
+
+    // // tryMe("hello", "Josh"); // This works using the function above
+
+    // function callbackTester(callback) {
+    //   callback(arguments[1], arguments[2]);
+    //   console.log(callback(arguments[1], arguments[2]));
+    // }
+
+    // callbackTester(tryMe, "hello", "goodbye");
+
+    // Because the initial value is empty on load .value is undefined, added to a eventkistener it checks the input field values on submit/click
+
+    // Selectors
+    let name = document.querySelector("#name");
+    let date = document.querySelector("#date");
+    let amount = document.querySelector("#amount");
+    const submit = document.querySelector("#submit");
+    const table = document.querySelector(".expenseTracker tbody");
+
+    // Function create table and input values
+    const createTable = function (a, b, c) {
+      table.innerHTML +=
+        "<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>";
+    };
+
+    const formsubmit = function () {
+      // Event Listener
+      submit.addEventListener("click", (e) => {
+        e.preventDefault;
+
+        let nameval = name.value;
+        let dateval = date.value;
+        let amountval = amount.value;
+
+        // Check if values are empty
+        if (nameval !== "" && dateval !== "" && amountval !== "") {
+          createTable(nameval, dateval, amountval);
+        } else {
+          alert("Please try again");
+        }
+      });
+    };
+
+    formsubmit();
+  </script>
+</html>
