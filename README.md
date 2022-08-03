@@ -1,7 +1,7 @@
 # Expense-Tracker
 
 Super simple expense tracker in es6 Javascript application,
-The purpose of the project was to learn JavaScript:
+The purpose of the project is to learn JavaScript:
 
 
 ## To-Do: 
