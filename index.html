@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <h1>Expense Tracker</h1> --->
+    <!-- <h1>Expense Tracker</h1> -->
 
     <div class="flex-col">
       <div class="flex">Name: <input type="text" id="name" /></div>
@@ -79,7 +79,18 @@
     // Function create table and input values
     const createTable = function (a, b, c) {
       table.innerHTML +=
-        "<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>";
+        "<tr><td>" +
+        a +
+        "</td><td>" +
+        b +
+        '</td><td class="amount">' +
+        c +
+        "</td></tr>";
+    };
+
+    const total = () => {
+      const sum = Array.from(document.querySelectorAll(".amount"));
+      sum.forEach((totalsum) => console.log(`total ${totalsum.innerHTML}`));
     };
 
     const formsubmit = function () {
@@ -94,6 +105,7 @@
         // Check if values are empty
         if (nameval !== "" && dateval !== "" && amountval !== "") {
           createTable(nameval, dateval, amountval);
+          total();
         } else {
           alert("Please try again");
         }
